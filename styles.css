@@ -249,14 +249,14 @@ a:hover,
   color: #444;
 }
 
-/* Responsive for Mobile */
+/* Responsive for Mobile 
 @media (max-width: 768px) {
   .shop-card {
     width: 90%;
   }
 }
 
-/* Shop Online */
+
 .shop-online-container {
   text-align: center;
   padding: 100px 20px;
@@ -362,7 +362,7 @@ a:hover,
   background-color: #b38e2e;
 }
 
-/* Floating Call & WhatsApp buttons */
+
 .floating-buttons {
   position: fixed;
   bottom: 20px;
@@ -482,3 +482,4 @@ a:hover,
     max-width: 100%;
     word-break: break-word;
   }
+*/
