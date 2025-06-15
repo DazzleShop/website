@@ -384,54 +384,101 @@ a:hover,
 .floating-icon:hover img {
   transform: scale(1.1);
 }
-
-/* Add these mobile-specific rules at the bottom of your existing CSS */
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll; /* Fixes mobile performance issues */
+@media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden;
   }
-  
+
   .brand-heading {
+    font-size: 28px;
     position: static;
     transform: none;
     text-align: center;
-    font-size: 28px;
     margin: 10px 0;
     white-space: normal;
-    width: 100%;
+    padding: 0 10px;
   }
-  
+
   .shop.half {
     max-width: 95%;
-    padding: 15px;
+    padding: 10px;
   }
-  
+
+  .shop-photo,
+  .shop-card img,
   .gallery-slider img {
-    height: 250px;
+    width: 100%;
+    height: auto;
   }
-  
-  .explore h2,
-  .gallery h2 {
-    font-size: 32px;
+
+  .shop-card {
+    width: 95%;
+    margin-bottom: 20px;
   }
-  
+
+  .logo,
+  .shop-logo {
+    height: 60px;
+    width: auto;
+  }
+
   .floating-icon img {
     width: 50px;
     height: 50px;
   }
-}
 
-@media (max-width: 480px) {
-  .logo {
-    height: 80px;
+  .explore h2,
+  .gallery h2,
+  .contact-section h2,
+  .shop-online-container h1 {
+    font-size: 30px;
   }
-  
-  .gallery-slider img {
-    height: 180px;
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 10px;
   }
-  
+
   .shop-online-container {
-    padding: 30px 15px;
+    padding: 20px;
     margin: 20px 10px;
   }
 }
+@media (max-width: 600px) {
+  .head {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .head .brand-heading {
+    font-size: 28px;
+    position: static;
+    transform: none;
+    margin-top: 10px;
+    text-align: center;
+    white-space: normal;
+    padding: 0 10px;
+  }
+
+  .head .logo {
+    height: 70px;
+    width: auto;
+  }
+}
+  .link {
+    position: static;
+    top: auto;
+    padding: 10px 5px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .link > a {
+    font-size: 12px;
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-word;
+  }
