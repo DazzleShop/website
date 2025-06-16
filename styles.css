@@ -1,433 +1,252 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+/* ==============================
+   Dulhan Fashions – Optimised CSS
+   (Same visual layout, leaner code)
+   ============================== */
+
+/* -------- Global Tokens -------- */
+:root{
+  --gold:#d4af37;
+  --brand-red:#a52a2a;
+  --white-95:rgba(255,255,255,.95);
+  --white-90:rgba(255,255,255,.9);
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  padding: 0;
-  background-image: url(./assets/bg.png); 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed; 
-  color: #fff;
+/* -------- Base Layout ---------- */
+html,body{
+  height:100%;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  font-family:'Merriweather', serif;
+  color:#000;
+}
+body{
+  padding:0;
+  background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+              url('./assets/bg.png') center/cover fixed no-repeat;
+}
+body>.bottom-container{margin-top:auto;}
+
+/* ---------- Header ------------- */
+.head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:10px;
+  background:url('./assets/rr.jpg') center/cover fixed no-repeat;
+  position:relative;
+}
+.head-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+}
+.logo{
+  height:120px;
+  align-self:flex-start;
+  margin-left:10px;
+}
+.brand-heading{
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  font:700 45px 'Times New Roman',serif;
+  color:var(--gold);
+  white-space:nowrap;
+  pointer-events:none;
+}
+.navbar{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-top:100px;
+}
+.link{
+  text-align:center;
+}
+.link a{
+  color:#fff;
+  text-decoration:none;
+  transition:color .3s ease;
+}
+.link a:hover{color:var(--gold);text-decoration:underline;}
+
+/* -------- Main Sections -------- */
+.shop-sections{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:5px;
+}
+.shop.half{
+  flex:1 1 400px;
+  max-width:550px;
+  height:100%;
+  padding:20px;
+  margin-top:0;
+  border-radius:10px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(to bottom, var(--white-90), rgba(255,255,255,.8));
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+.shop-photo{width:100%;border-radius:8px;margin-top:15px;}
+.shop-logo{height:80px;width:50%;}
+
+/* -------- Footer --------------- */
+.bottom-container{
+  padding:50px 0 20px;
+  text-align:center;
+  color:#000;
+  background:url('./assets/nn.jpg') center/cover fixed no-repeat;
+}
+.footer-link{padding:5px 15px;}
+
+/* -------- Explore & Gallery ---- */
+.explore h2,
+.gallery h2{
+  font:50px 'Georgia',serif;
+  text-align:center;
+  margin:0 0 20px;
+}
+.gallery{
+  margin-top:80px;
+  padding:10px;
+
+}
+.gallery-slider{
+  display:flex;
+  overflow-x:auto;
+  gap:16px;
+  padding:10px 0;
+  scroll-snap-type:x mandatory;
+}
+.gallery-slider img{
+  height:400px;
+  flex-shrink:0;
+  border-radius:12px;
+  object-fit:cover;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
 }
 
-body > .bottom-container {
-  margin-top: auto;
+/* -------- Explore Cards -------- */
+.explore-header{margin:60px 0 30px;text-align:center;}
+.explore-header h1{font:40px 'Georgia',serif;color:#fff;}
+
+.shop-options{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+  padding:20px;
+  width:100%;
+  max-width:1100px;
+  margin:auto;
 }
-
-.head {
-  background-image: url(./assets/rr.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  padding: 0;
+.shop-card{
+  width:500px;
+  margin-bottom:50px;
+  text-align:center;
+  text-decoration:none;
+  color:inherit;
+  background:var(--white-95);
+  border-radius:12px;
+  box-shadow:0 4px 16px rgba(0,0,0,.1);
+  transition:transform .3s ease;
 }
-
-.logo {
-  height: 120px;
+.shop-card:hover{transform:translateY(-4px);}
+.shop-card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:12px 12px 0 0;
 }
-
-.shop-sections {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 5px 5px;
-
-  margin-top: 0;
+.shop-card h2{
+  margin:15px 0 5px;
+  font-family:'Georgia',serif;
+  color:var(--brand-red);
 }
+.shop-card p{padding:0 15px 20px;font-size:14px;color:#444;}
 
-.shop.half {
-  margin-top: 0;
-  flex: 1 1 400px;
-  max-width: 550px;
-
-  padding: 20px;
-  border-radius: 10px;
-  height: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  color:black;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+/* ---------- Shop Online -------- */
+.shop-online-container{
+  max-width:800px;
+  margin:50px auto;
+  padding:100px 20px;
+  text-align:center;
+  background:var(--white-90);
+  border-radius:12px;
+  box-shadow:0 4px 16px rgba(0,0,0,.1);
 }
-
-.shop-photo {
-  width: 100%;
-  border-radius: 8px;
-  margin-top: 15px;
+.shop-online-container h1{font:42px 'Georgia',serif;color:var(--gold);} 
+.shop-online-container .coming-soon{font-size:24px;color:var(--brand-red);} 
+.shop-online-container .shop-desc{font-size:16px;color:#555;line-height:1.6;}
+.go-back-button{
+  display:inline-block;
+  margin-top:25px;
+  padding:10px 20px;
+  background:var(--brand-red);
+  color:#fff;
+  font-weight:bold;
+  border-radius:8px;
+  text-decoration:none;
+  transition:background .3s ease;
 }
+.go-back-button:hover{background:#7a1e1e;}
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .shop-sections {
-    flex-direction: column;
-    align-items: center;
-  }
+.shop-link{display:block;text-decoration:none;color:inherit;transition:transform .3s ease,box-shadow .3s ease;}
+.shop-link:hover .shop{transform:scale(1.03);box-shadow:0 6px 18px rgba(0,0,0,.2);}
 
-  .shop.half {
-    max-width: 90%;
-  }
-
-  .master-logo {
-    width: 120px;
-  }
-}
-.shop-logo{
-  height: 80px;
-  width:50%;
-}
-
-.footer-link {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 5px;
-}
-
-.bottom-container {
-  background-image: url(./assets/nn.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 50px 0 20px;
-  text-align: center;
-  color: black;
-}
-
-.link {
-  display: block;
-  padding-left: 15px;
-  margin-left: 15px;
-  text-align: center;
-  width: 100%;
-  position: relative;
-  top: 60px;
-}
-
-.link > a {
-  color: #fff;
-  text-decoration: none;
-}
-a:hover,
-.link > a:hover {
-  color: #d4af37; /* gold-ish color to match your theme */
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-
-.brand-heading {
-  position: absolute;
-  left: 53%;
-  transform: translate(-50%, -50%);
-  top: 1%;
-  font-family: "Times New Roman", serif;
-  font-size: 45px;
-  color: #d4af37;
-  font-weight: bold;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.explore {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-.explore h2 {
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  font-family: "Georgia", serif;
-  color: #fff;
-  font-size: 50px;
-  margin-top: 0;
-}
-
-.gallery {
-  margin-top: 80px;
-  padding: 10px 10px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
-}
-
-.gallery h2 {
-  text-align: center;
-  font-size: 50px;
-  margin-bottom: 20px;
-  font-family: "Georgia", serif;
-  color: #fff;
-}
-
-.gallery-slider {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 16px;
-  padding: 10px 0;
-}
-
-.gallery-slider img {
-  height: 400px;
-  width: auto;
-  flex-shrink: 0;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Explore Page & Shop Online Styles */
-.explore-header {
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 30px;
-}
-
-.explore-header h1 {
-  font-family: 'Georgia', serif;
-  font-size: 40px;
-  color: #fff;
-}
-
-.shop-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  padding: 20px;
-  
-  width: 100%;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.shop-card {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 500px;
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  color: inherit;
-  margin-bottom: 50px;;
-}
-
-.shop-card:hover {
-  transform: translateY(-4px);
-}
-
-.shop-card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-.shop-card h2 {
-  margin: 15px 0 5px;
-  font-family: 'Georgia', serif;
-  color: #a52a2a;
-}
-
-.shop-card p {
-  font-size: 14px;
-  padding: 0 15px 20px;
-  color: #444;
-}
-
-/* Responsive for Mobile */
-@media (max-width: 768px) {
-  .shop-card {
-    width: 90%;
-  }
-}
-
-/* Shop Online */
-.shop-online-container {
-  text-align: center;
-  padding: 100px 20px;
-  max-width: 800px;
-  margin: auto;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.shop-online-container h1 {
-  font-family: 'Georgia', serif;
-  font-size: 42px;
-  color: #d4af37;
-  margin-bottom: 20px;
-}
-
-.shop-online-container .coming-soon {
-  font-size: 24px;
-  color: #a52a2a;
-  margin-bottom: 10px;
-}
-
-.shop-online-container .shop-desc {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.go-back-button {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 10px 20px;
-  background-color: #a52a2a;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.go-back-button:hover {
-  background-color: #7a1e1e;
-}
-
-.shop-link {
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
-}
-
-.shop-link:hover .shop {
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.contact-section {
-  padding: 40px 20px;
-  text-align: center;
-  color: #fff;
-}
-
-.contact-section h2 {
-  font-size: 45px;
-  font-family: 'Georgia', serif;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.contact-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
+/* ---------- Contact ------------ */
+.contact-section{padding:40px 20px;text-align:center;}
+.contact-section h2{font:45px 'Georgia',serif;margin-bottom:10px;}
+.contact-form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px;}
 .contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  font-family: 'Segoe UI', sans-serif;
-}
+.contact-form textarea{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:16px;}
+.contact-form button{padding:12px;background:var(--gold);color:#fff;font-weight:bold;border:none;border-radius:6px;cursor:pointer;transition:background .3s;}
+.contact-form button:hover{background:#b38e2e;}
 
-.contact-form button {
-  padding: 12px;
-  background-color: #d4af37;
-  color: white;
-  border: none;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+/* ----- Floating Utilities ------ */
+.floating-buttons{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  z-index:1000;
 }
-
-.contact-form button:hover {
-  background-color: #b38e2e;
+.floating-icon img{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  transition:transform .2s ease;
 }
+.floating-icon:hover img{transform:scale(1.1);}
 
-/* Floating Call & WhatsApp buttons */
-.floating-buttons {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
+/* ----------- Media ------------- */
+@media(max-width:768px){
+  body{background-attachment:scroll;}
+  .logo{height:100px;}
+  .brand-heading{font-size:28px;top:10px;transform:translateX(-50%);}
+  .navbar{margin-top:80px;gap:10px;}
+  .link{margin:5px 10px;}
+  .shop-sections,.shop-options{gap:25px;}
+  .shop.half{max-width:95%;padding:15px;}
+  .shop-card{width:90%;}
+  .gallery-slider img{height:250px;}
+  .explore h2,.gallery h2{font-size:32px;}
+  .floating-icon img{width:50px;height:50px;}
 }
-
-.floating-icon img {
-  width: 64px;
-  height: 64px;
-  border-radius: 90%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-}
-
-.floating-icon:hover img {
-  transform: scale(1.1);
-}
-
-/* Add these mobile-specific rules at the bottom of your existing CSS */
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll; /* Fixes mobile performance issues */
-  }
-  
-  .brand-heading {
-    position: static;
-    transform: none;
-    text-align: center;
-    font-size: 28px;
-    margin: 10px 0;
-    white-space: normal;
-    width: 100%;
-  }
-  
-  .shop.half {
-    max-width: 95%;
-    padding: 15px;
-  }
-  
-  .gallery-slider img {
-    height: 250px;
-  }
-  
-  .explore h2,
-  .gallery h2 {
-    font-size: 32px;
-  }
-  
-  .floating-icon img {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    height: 80px;
-  }
-  
-  .gallery-slider img {
-    height: 180px;
-  }
-  
-  .shop-online-container {
-    padding: 30px 15px;
-    margin: 20px 10px;
-  }
+@media(max-width:480px){
+  .logo{height:80px;}
+  .gallery-slider img{height:180px;}
+  .shop-online-container{padding:30px 15px;margin:20px 10px;}
+  .brand-heading{font-size:24px;top:10px;}
+  .navbar{margin-top:70px;gap:8px;}
 }
